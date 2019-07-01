@@ -36,10 +36,17 @@ public class HolidayFinder {
             HolidayService2 holidays = new HolidayService2();
             HolidayService2Soap holidaySoap = holidays.getHolidayService2Soap();
             ArrayOfHoliday arrayOfHoliday = holidaySoap.getHolidaysForYear(Country.UNITED_STATES, year);
-            List<Holiday> holidayList = arrayOfHoliday.getHoliday();
-            System.out.println(holidayList.toString());
+            List holidayList = arrayOfHoliday.getHoliday();
+            
+            Object[] holidayArray = holidayList.toArray();
+            
+            ArrayList holidayStrings = new ArrayList();
+            //ArrayList arrayOfHolidays = holidayList;
+            
+            for (int i = 0; i < holidayArray.length; i++) {
+                System.out.println(holidayList.get(i).toString());
+            }
+            }
         }
         
     }
-    
-}
